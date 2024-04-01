@@ -11,11 +11,10 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Answer Sheet for Stats 707 Assignment 2
 
-```{r echo=FALSE,include = FALSE}
+```{r echo=TRUE,include = FALSE}
 
 library(tidyverse)
 
-df <-  read.csv('data/luckylotto.csv',header=TRUE,sep=',')
 ```
 
 ## Question 1
@@ -47,7 +46,7 @@ c.  Interpret the findings of the test. [ 4 Marks].
 
 ### Answer for Task 1:
 
-```{r echo=FALSE,cache=TRUE}
+```{r echo=TRUE,cache=TRUE}
 
 df <-  read.csv('data/luckylotto.csv',header=TRUE,sep=',')
 sample <- df %>% pull('response_code')
@@ -371,7 +370,6 @@ aggregate(THC.measured ~ Strain.Type, data = df4, FUN = length)
 ```
 
 From box plot,the data for Indice is right skewed, but other group looks symmetric.the range of Indice is larger than others. That means the variance of Indice will be bigger.
-There are a outlier for data Sativa far way from the range.Remove it will be fair to the test.
 
 
 ```{r echo=TRUE,cache=TRUE}
@@ -391,6 +389,7 @@ qqPlot(THC.measured~Strain.Type,df4)
 
 From qqPlot, the datas of Sativa and  Indice looks Normal. Regarding Hybird, There are a few of data out of range, looks not good for ANOVA.It doesn't meet the assumption that all the populations are normally distributed.
 
+The original looks not met the assumption.
 
 And if we run the one way ANOVA
 
@@ -457,7 +456,7 @@ qqPlot(anova1[[2]])
 ```
 According the residual plots, the residual spread of the three dataset are similiar,much better than the ANOVA test from original data.
 
-***So the assumptions are considered to be met ***
+***So the assumptions are considered to be met after transforming data ***
 
 
 ### Answer for Task 4:
